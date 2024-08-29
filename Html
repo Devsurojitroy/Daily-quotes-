@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Quote Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced Quote Maker</h1>
+
+        <!-- Input Fields -->
+        <textarea id="quote-input" placeholder="Type your quote here..."></textarea>
+        <input type="text" id="author-input" placeholder="Author name">
+        
+        <!-- Customization Options -->
+        <div class="customization-options">
+            <div class="option-group">
+                <label for="font-select">Font:</label>
+                <select id="font-select">
+                    <option value="Arial">Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+            </div>
+            <div class="option-group">
+                <label for="font-size">Font Size:</label>
+                <input type="number" id="font-size" value="18">
+            </div>
+            <div class="option-group">
+                <label for="text-color">Text Color:</label>
+                <input type="color" id="text-color" value="#000000">
+            </div>
+            <div class="option-group">
+                <label for="bg-color">Background Color:</label>
+                <input type="color" id="bg-color" value="#f8f9fa">
+            </div>
+        </div>
+
+        <!-- Button to Generate Quote -->
+        <button id="generate-quote">Generate Quote</button>
+
+        <!-- Display Area -->
+        <div class="quote-display" id="quote-display">
+            <p id="quote-text"></p>
+            <p id="quote-author"></p>
+        </div>
+
+        <!-- Save and Share Options -->
+        <button id="save-quote">Save Quote</button>
+        <button id="share-quote">Share Quote</button>
+
+        <!-- Saved Quotes Section -->
+        <div id="saved-quotes">
+            <h2>Saved Quotes</h2>
+            <ul id="quote-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
