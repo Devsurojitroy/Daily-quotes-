@@ -1,0 +1,65 @@
+document.getElementById("generate-quote").addEventListener("click", function() {
+    let quoteText = document.getElementById("quote-input").value.trim();
+    let quoteAuthor = document.getElementById("author-input").value.trim() || "Unknown";
+
+    if (quoteText === "") {
+        alert("Please enter a quote.");
+        return;
+    }
+
+    let font = document.getElementById("font-select").value;
+    let fontSize = document.getElementById("font-size").value;
+    let textColor = document.getElementById("text-color").value;
+    let bgColor = document.getElementById("bg-color").value;
+
+    // Apply styles
+    let quoteDisplay = document.getElementById("quote-display");
+    let quoteTextElem = document.getElementById("quote-text");
+    let quoteAuthorElem = document.getElementById("quote-author");
+
+    quoteDisplay.style.backgroundColor = bgColor;
+    quoteTextElem.style.fontFamily = font;
+    quoteTextElem.style.fontSize = fontSize + "px";
+    quoteTextElem.style.color = textColor;
+
+    // Display the quote
+    quoteTextElem.innerText = `"${quoteText}"`;
+    quoteAuthorElem.innerText = `- ${quoteAuthor}`;
+});
+
+document.getElementById("save-quote").addEventListener("click", function() {
+    let quoteText = document.getElementById("quote-text").innerText;
+    let quoteAuthor = document.getElementById("quote-author").innerText;
+
+    if (quoteText === "") {
+        alert("Please generate a quote first.");
+        return;
+    }
+
+    let quoteList = document.getElementById("quote-list");
+    let li = document.createElement("li");
+    li.innerText = `${quoteText} ${quoteAuthor}`;
+    quoteList.appendChild(li);
+
+    alert("Quote saved!");
+});
+
+document.getElementById("share-quote").addEventListener("click", function() {
+    let quoteText = document.getElementById("quote-text").innerText;
+    let quoteAuthor = document.getElementById("quote-author").innerText;
+
+    if (quoteText === "") {
+        alert("Please generate a quote first.");
+        return;
+    }
+
+    let shareText = `${quoteText} ${quoteAuthor}`;
+    if (navigator.share) {
+        navigator.share({
+            title: 'Quote',
+            text: shareText
+        }).catch(console.error);
+    } else {
+        alert("Sharing is not supported in your browser.");
+    }
+});
